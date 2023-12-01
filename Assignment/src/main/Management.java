@@ -15,10 +15,10 @@ public class Management {
 
     // constructor for Car
     // make, plate, color, category, gear, type
-    Vehicle vt1 = new Car("Lamborghini", "Custom Plate", "White", VehicleType.Family, Gear.Manual, CarType.Sport);
-    Vehicle vt2 = new Car("BMW", "Custom Plate", "Black", VehicleType.Family, Gear.Automatic, CarType.Sedan);
-    Vehicle vt3 = new Car("Renault Clio", "Custom Plate", "Blue", VehicleType.Family, Gear.Manual, CarType.Hatchback);
-    Vehicle vt4 = new Car("Mazda", "Custom Plate", "White", VehicleType.Family, Gear.Automatic, CarType.SUV);
+    Vehicle vt1 = new Car("Lamborghini", "Custom Plate", "White", VehicleType.FAMILY, Gear.MANUAL, CarType.SPORT);
+    Vehicle vt2 = new Car("BMW", "Custom Plate", "Black", VehicleType.FAMILY, Gear.AUTOMATIC, CarType.SEDAN);
+    Vehicle vt3 = new Car("Renault Clio", "Custom Plate", "Blue", VehicleType.FAMILY, Gear.MANUAL, CarType.HATCHBACK);
+    Vehicle vt4 = new Car("Mazda", "Custom Plate", "White", VehicleType.FAMILY, Gear.AUTOMATIC, CarType.SUV);
 
     // Employee constructors
     // Manager: name, birthYear, nbClients, nbTravelDays, rate
@@ -52,7 +52,7 @@ public class Management {
         }
     }
 
-    void hireTest3() {
+        void hireTest3() {
         employees.clear();
         Employee Serge = new Manager("Serge", 1985, 30, 4, vt1);
         Employee Cindy = new Manager("Cindy", 1974, 20, 6, 80, vt2);
@@ -110,4 +110,3 @@ public class Management {
         System.out.println("-------------------------");
     }
 }
-
