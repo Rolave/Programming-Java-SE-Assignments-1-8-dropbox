@@ -12,6 +12,7 @@ public class Employee {
     private double monthlySalary;
     private double rate;
     private Vehicle employeeVehicle;
+    private Contract employeeContract;
 
     public Employee(String name, int birthYear) {
         this.name = name;
@@ -47,6 +48,11 @@ public class Employee {
         this.employeeVehicle = employeeVehicle;
     }
 
+    public void setEmployeeContract(Contract employeeContract) {
+        this.employeeContract = employeeContract;
+        this.monthlySalary = employeeContract.estimatedMonthlySalary();
+    }
+
     public double getEffectiveOccupationRate(double rate) {
         if (rate > DEFAULT_OCCUPATION_RATE) {
             return DEFAULT_OCCUPATION_RATE;
@@ -65,10 +71,13 @@ public class Employee {
         return this.rate / 100;
     }
 
-    public double annualIncome() {
-        return 12 * this.monthlySalary * this.formatOccupationRate();
+    public double monthlyIncome() {
+        return this.employeeContract != null ? this.employeeContract.estimatedMonthlySalary() : this.monthlySalary;
     }
 
+    public double annualIncome() {
+        return 12 * monthlyIncome() * this.formatOccupationRate();
+    }
 
     public void printNewEmployeeMessage() {
         String newEmployeeMessage = "We have a new employee: " + this.name + ", a " + this.getClass().getSimpleName().toLowerCase() + ".";
@@ -77,6 +86,15 @@ public class Employee {
 
     public String getEstimatedAnnualIncomeMessage() {
         return "His/Her estimated annual income is " + this.annualIncome();
+    }
+
+    public void signContract(Contract employeeContract) {
+        this.setEmployeeContract(employeeContract);
+    }
+
+    public String contractInfo() {
+        return this.name + " is a " + this.getClass().getSimpleName().toLowerCase() +
+                this.employeeContract + "\n";
     }
 
     @Override
