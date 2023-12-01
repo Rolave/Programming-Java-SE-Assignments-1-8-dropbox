@@ -52,7 +52,7 @@ public class Management {
         }
     }
 
-        void hireTest3() {
+    void hireTest3() {
         employees.clear();
         Employee Serge = new Manager("Serge", 1985, 30, 4, vt1);
         Employee Cindy = new Manager("Cindy", 1974, 20, 6, 80, vt2);

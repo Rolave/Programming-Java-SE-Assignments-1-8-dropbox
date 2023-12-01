@@ -43,7 +43,8 @@ public class Manager extends Employee {
 
     @Override
     public double annualIncome() {
-        return super.annualIncome() + this.nbClients * GAIN_FACTOR_CLIENT + this.nbTravelDays * GAIN_FACTOR_TRAVEL;
-
+        double clientsBonus = this.nbClients * GAIN_FACTOR_CLIENT;
+        double travelDaysBonus = this.nbTravelDays * GAIN_FACTOR_TRAVEL;
+        return super.annualIncome() + clientsBonus + travelDaysBonus;
     }
 }
