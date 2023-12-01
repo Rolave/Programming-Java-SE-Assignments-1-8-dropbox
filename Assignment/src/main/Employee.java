@@ -11,6 +11,7 @@ public class Employee {
     private int birthYear;
     private double monthlySalary;
     private double rate;
+    private Vehicle employeeVehicle;
 
     public Employee(String name, int birthYear) {
         this.name = name;
@@ -20,7 +21,7 @@ public class Employee {
         this.rate = DEFAULT_OCCUPATION_RATE;
     }
 
-    public Employee(String name, int birthYear, int rate) {
+    public Employee(String name, int birthYear, double rate) {
         this.name = name;
         this.age = Year.now().getValue() - birthYear;
         this.birthYear = birthYear;
@@ -28,7 +29,25 @@ public class Employee {
         this.rate = this.getEffectiveOccupationRate(rate);
     }
 
-    public double getEffectiveOccupationRate(int rate) {
+    public Employee(String name, int birthYear, Vehicle employeeVehicle) {
+        this.name = name;
+        this.age = Year.now().getValue() - birthYear;
+        this.birthYear = birthYear;
+        this.monthlySalary = DEFAULT_MONTHLY_SALARY;
+        this.rate = this.getEffectiveOccupationRate(DEFAULT_OCCUPATION_RATE);
+        this.employeeVehicle = employeeVehicle;
+    }
+
+    public Employee(String name, int birthYear, double rate, Vehicle employeeVehicle) {
+        this.name = name;
+        this.age = Year.now().getValue() - birthYear;
+        this.birthYear = birthYear;
+        this.monthlySalary = DEFAULT_MONTHLY_SALARY;
+        this.rate = this.getEffectiveOccupationRate(rate);
+        this.employeeVehicle = employeeVehicle;
+    }
+
+    public double getEffectiveOccupationRate(double rate) {
         if (rate > DEFAULT_OCCUPATION_RATE) {
             return DEFAULT_OCCUPATION_RATE;
         } else if (rate < MINIMUM_OCCUPATION_RATE) {
@@ -38,12 +57,34 @@ public class Employee {
         }
     }
 
-    public String newEmployeeMessage() {
-        return "We have a new employee: " + this.name + ", a " + this.getClass().getSimpleName().toLowerCase() + ".";
+    public String getOccupationRateMessage() {
+        return this.name + " has an Occupation rate: " + this.rate + "%";
+    }
+
+    public double formatOccupationRate() {
+        return this.rate / 100;
+    }
+
+    public double annualIncome() {
+        return 12 * this.monthlySalary * this.formatOccupationRate();
+    }
+
+
+    public void printNewEmployeeMessage() {
+        String newEmployeeMessage = "We have a new employee: " + this.name + ", a " + this.getClass().getSimpleName().toLowerCase() + ".";
+        System.out.println(newEmployeeMessage);
+    }
+
+    public String getEstimatedAnnualIncomeMessage() {
+        return "His/Her estimated annual income is " + this.annualIncome();
     }
 
     @Override
     public String toString() {
-        return this.newEmployeeMessage();
+        return "Name: " + this.name + ", a " + this.getClass().getSimpleName() + "\n" +
+                "Age: " + this.age + "\n" +
+                this.employeeVehicle +
+                this.getOccupationRateMessage() + "\n" +
+                this.getEstimatedAnnualIncomeMessage();
     }
 }
