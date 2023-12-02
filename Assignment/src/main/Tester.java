@@ -5,9 +5,7 @@ public class Tester extends Employee {
     private int nbBugs;
 
     public Tester(String name, int birthYear, int nbBugs, double rate) {
-        super(name, birthYear, rate);
-        this.nbBugs = nbBugs;
-        super.printNewEmployeeMessage();
+        this(name,birthYear,nbBugs,rate,null);
     }
 
     public Tester(String name, int birthYear, int nbBugs, double rate, Vehicle employeeVehicle) {

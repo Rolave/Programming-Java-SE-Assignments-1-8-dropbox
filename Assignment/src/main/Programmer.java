@@ -5,8 +5,7 @@ public class Programmer extends Employee {
     private int nbProjects;
 
     public Programmer(String name, int birthYear, double rate) {
-        super(name, birthYear, rate);
-        super.printNewEmployeeMessage();
+        this(name,birthYear,0,rate);
     }
 
     public Programmer(String name, int birthYear, int nbProjects, double rate) {

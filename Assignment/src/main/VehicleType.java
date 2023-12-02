@@ -1,5 +1,4 @@
 package main;
-
 public enum VehicleType {
     FAMILY {
         @Override
