@@ -7,10 +7,7 @@ public class Manager extends Employee {
     int nbTravelDays;
 
     public Manager(String name, int birthYear, int nbClients, int nbTravelDays) {
-        super(name, birthYear);
-        this.nbClients = nbClients;
-        this.nbTravelDays = nbTravelDays;
-        super.printNewEmployeeMessage();
+        this(name,birthYear,nbClients,nbTravelDays,0);
     }
 
     public Manager(String name, int birthYear, int nbClients, int nbTravelDays, double rate) {
