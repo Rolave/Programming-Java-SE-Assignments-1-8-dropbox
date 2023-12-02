@@ -1,15 +1,18 @@
 package main;
 
+// Car class represents a specific type of vehicle
 public class Car extends Vehicle {
     private Gear gear;
     private CarType type;
 
+    // Constructor for Car
     public Car(String make, String plate, String color, VehicleType category, Gear gear, CarType type) {
         super(make, plate, color, category);
         this.gear = gear;
         this.type = type;
     }
 
+    // Getters and setters for Car class
     public Gear getGear() {
         return gear;
     }
@@ -26,6 +29,7 @@ public class Car extends Vehicle {
         this.type = type;
     }
 
+    // Override toString method to represent Car details
     @Override
     public String toString() {
         return super.toString() +

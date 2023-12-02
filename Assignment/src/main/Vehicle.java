@@ -1,5 +1,4 @@
 package main;
-
 public class Vehicle {
     private String make;
     private String plate;
@@ -13,6 +12,7 @@ public class Vehicle {
         this.category = category;
     }
 
+    // Getters and setters for Vehicle class
     public String getMake() {
         return make;
     }
@@ -52,7 +52,7 @@ public class Vehicle {
     @Override
     public String toString() {
         String className = this.getClass().getSimpleName().toLowerCase();
-        return  "Employee has a " + className + "\n" +
+        return "Employee has a " + className + "\n" +
                 "\t- make: " + this.make + "\n" +
                 "\t- plate: " + this.plate + "\n" +
                 "\t- color: " + this.color + "\n" +
